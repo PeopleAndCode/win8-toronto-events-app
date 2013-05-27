@@ -16,17 +16,17 @@
     <AppXManifest Include="C:\Users\facul_000\Documents\GitHub\win8-toronto-events-app\Toront-Events\App1\bin\x86\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-05-27T20:47:33.716</Modified>
+      <Modified>2013-05-27T22:16:18.283</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\facul_000\Documents\GitHub\win8-toronto-events-app\Toront-Events\App1\bin\x86\Debug\App1.exe">
       <PackagePath>App1.exe</PackagePath>
-      <Modified>2013-05-27T21:03:12.804</Modified>
+      <Modified>2013-05-27T22:50:18.009</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\facul_000\Documents\GitHub\win8-toronto-events-app\Toront-Events\App1\bin\x86\Debug\App1.pdb">
       <PackagePath>App1.pdb</PackagePath>
-      <Modified>2013-05-27T21:03:12.796</Modified>
+      <Modified>2013-05-27T22:50:18.001</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\facul_000\AppData\Local\Microsoft SDKs\Windows\v8.0\ExtensionSDKs\Bing.Maps.Xaml\1.0\References\commonconfiguration\neutral\Bing.Maps.winmd">
       <PackagePath>Bing.Maps.winmd</PackagePath>
@@ -370,7 +370,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\facul_000\Documents\GitHub\win8-toronto-events-app\Toront-Events\App1\bin\x86\Debug\MainPage.xaml">
       <PackagePath>MainPage.xaml</PackagePath>
-      <Modified>2013-05-27T20:58:17.346</Modified>
+      <Modified>2013-05-27T21:58:01.068</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\facul_000\Documents\GitHub\win8-toronto-events-app\Toront-Events\App1\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>

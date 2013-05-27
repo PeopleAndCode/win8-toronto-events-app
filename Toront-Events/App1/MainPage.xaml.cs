@@ -40,21 +40,14 @@ namespace App1
             myMap.ZoomLevel = 12;
             myMap.MapType = MapType.Aerial;
 
-            Button helloButton = new Button();
-            helloButton.Margin = new Thickness(0);
-            helloButton.Content = "HELLO WORLD!";
-
-            TextBlock helloBlock = new TextBlock();
-            helloBlock.Text = "CLICK TCLICK THAT BUTTONCLICK THAT BUTTONCLICK THAT BUTTONCLICK THAT BUTTON";
+            LocationTag hTag = new LocationTag("Crystal's house", 43.77091, -79.41133,
+                "WHAT DO YOU WANT FROM ME??");
+            LocationTag pTag = new LocationTag("People&Code Home Base", 43.650374, -79.393859,
+                "DANSZE IS HERE.  HE's REALLY DAMN CUTE YOUSHOULD COME AND SHMEX HIM");
 
 
-            Grid helloGrid = new Grid();
-            helloGrid.Children.Add(helloBlock);
-            helloGrid.Children.Add(helloButton);
-
-
-            locationList.Items.Add(helloGrid); 
-
+            locationList.Items.Add(new LocationTag("Crystal's house", 43.77091, -79.41133, "WHAT DO YOU WANT FROM ME??"));
+            locationList.Items.Add(new LocationTag("People&Code Home Base", 43.650374, -79.393859, "DANSZE IS HERE.  HE's REALLY DAMN CUTE YOUSHOULD COME AND SHMEX HIM"));
 
             Pushpin pushpin = new Pushpin();
             pushpin.Text = "OMG ZE CUTE";
@@ -66,6 +59,15 @@ namespace App1
         {
             MessageDialog dialog = new MessageDialog("Hello from Seattle.");
             await dialog.ShowAsync();
+        }
+
+        private async void listTapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+            LocationTag selectedTag = ((LocationTag) (locationList.SelectedItem));
+            myMap.Center = selectedTag.location;
+
+            //MessageDialog dialog = new MessageDialog(selectedTag.info);
+            //await dialog.ShowAsync();
         }
 
 
