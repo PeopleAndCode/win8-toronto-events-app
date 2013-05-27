@@ -8,17 +8,30 @@
     mc:Ignorable="d"
     xmlns:bm="using:Bing.Maps">
 
-    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
-        <bm:Map Credentials="Apvq3Hzd4CGpbE2UNhuF5htbMoIGN78-ZOXWCn4wHzFhMqlmDax0eYcv7irOFnna" 
+    <Grid x:Name="mainGrid" Background="{StaticResource ApplicationPageBackgroundThemeBrush}" Margin="0,0,0,0">
+
+        <Grid x:Name="mapGrid" Margin="0, 0, 0, 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="967*"/>
+                <ColumnDefinition Width="399*"/>
+            </Grid.ColumnDefinitions>
+
+            <bm:Map Credentials="Apvq3Hzd4CGpbE2UNhuF5htbMoIGN78-ZOXWCn4wHzFhMqlmDax0eYcv7irOFnna" 
                 x:Name="myMap">
 
-            <bm:Map.Children>
-                <bm:Pushpin Tapped="pushpinTapped">
-                    <bm:MapLayer.Position>
-                        <bm:Location Latitude="47.610039" Longitude="-122.342207" />
-                    </bm:MapLayer.Position>
-                </bm:Pushpin>
-            </bm:Map.Children>
-        </bm:Map>
+                <bm:Map.Children>
+                    <bm:Pushpin Tapped="pushpinTapped">
+                        <bm:MapLayer.Position>
+                            <bm:Location Latitude="47.610039" Longitude="-122.342207" />
+                        </bm:MapLayer.Position>
+                    </bm:Pushpin>
+                </bm:Map.Children>
+            </bm:Map>
+
+
+            <ListBox x:Name="locationList" Margin="10" Grid.RowSpan="1" Grid.Column="1">
+            </ListBox>
+
+        </Grid>
     </Grid>
 </Page>
