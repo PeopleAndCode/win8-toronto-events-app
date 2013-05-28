@@ -18,14 +18,6 @@
 
             <bm:Map Credentials="Apvq3Hzd4CGpbE2UNhuF5htbMoIGN78-ZOXWCn4wHzFhMqlmDax0eYcv7irOFnna" 
                 x:Name="myMap">
-
-                <bm:Map.Children>
-                    <bm:Pushpin Tapped="pushpinTapped">
-                        <bm:MapLayer.Position>
-                            <bm:Location Latitude="47.610039" Longitude="-122.342207" />
-                        </bm:MapLayer.Position>
-                    </bm:Pushpin>
-                </bm:Map.Children>
             </bm:Map>
 
 

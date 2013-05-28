@@ -140,17 +140,15 @@ namespace App1.TorontoEventsA2_XamlTypeInfo
 
         private object Activate_13_MapShapeCollection() { return new global::Bing.Maps.MapShapeCollection(); }
 
-        private object Activate_18_Pushpin() { return new global::Bing.Maps.Pushpin(); }
+        private object Activate_18_MainPage() { return new global::App1.MainPage(); }
 
-        private object Activate_19_MapLayer() { return new global::Bing.Maps.MapLayer(); }
+        private object Activate_19_Pushpin() { return new global::Bing.Maps.Pushpin(); }
 
-        private object Activate_20_MainPage() { return new global::App1.MainPage(); }
+        private object Activate_20_MapItemsControl() { return new global::Bing.Maps.MapItemsControl(); }
 
-        private object Activate_21_MapItemsControl() { return new global::Bing.Maps.MapItemsControl(); }
+        private object Activate_21_VenueFloorDataSource() { return new global::Bing.Maps.VenueMaps.VenueFloorDataSource(); }
 
-        private object Activate_22_VenueFloorDataSource() { return new global::Bing.Maps.VenueMaps.VenueFloorDataSource(); }
-
-        private object Activate_27_LocationCollection() { return new global::Bing.Maps.LocationCollection(); }
+        private object Activate_26_LocationCollection() { return new global::Bing.Maps.LocationCollection(); }
 
         private void VectorAdd_1_MapUIElementCollection(object instance, object item)
         {
@@ -187,14 +185,14 @@ namespace App1.TorontoEventsA2_XamlTypeInfo
             collection.Add(newItem);
         }
 
-        private void VectorAdd_23_IObservableVector(object instance, object item)
+        private void VectorAdd_22_IObservableVector(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::System.Object>)instance;
             var newItem = (global::System.Object)item;
             collection.Add(newItem);
         }
 
-        private void VectorAdd_27_LocationCollection(object instance, object item)
+        private void VectorAdd_26_LocationCollection(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::Bing.Maps.Location>)instance;
             var newItem = (global::Bing.Maps.Location)item;
@@ -239,14 +237,6 @@ namespace App1.TorontoEventsA2_XamlTypeInfo
 
             case "Int32":
                 xamlType = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::System.Int32));
-                break;
-
-            case "Windows.UI.Xaml.Controls.Panel":
-                xamlType = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::Windows.UI.Xaml.Controls.Panel));
-                break;
-
-            case "Windows.Foundation.Point":
-                xamlType = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::Windows.Foundation.Point));
                 break;
 
             case "Windows.UI.Xaml.Controls.Page":
@@ -437,10 +427,10 @@ namespace App1.TorontoEventsA2_XamlTypeInfo
             case "Bing.Maps.Location":
                 userType = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Bing.Maps.Location), GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
                 userType.Activator = Activate_10_Location;
-                userType.AddMemberName("Latitude");
+                userType.AddMemberName("Longitude");
                 AddToMapOfTypeToStandardName(typeof(global::System.Double),
                                                    "Double");
-                userType.AddMemberName("Longitude");
+                userType.AddMemberName("Latitude");
                 AddToMapOfTypeToStandardName(typeof(global::System.Double),
                                                    "Double");
                 xamlType = userType;
@@ -508,9 +498,15 @@ namespace App1.TorontoEventsA2_XamlTypeInfo
                 xamlType = userType;
                 break;
 
+            case "App1.MainPage":
+                userType = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::App1.MainPage), GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_18_MainPage;
+                xamlType = userType;
+                break;
+
             case "Bing.Maps.Pushpin":
                 userType = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Bing.Maps.Pushpin), GetXamlTypeByName("Windows.UI.Xaml.Controls.Control"));
-                userType.Activator = Activate_18_Pushpin;
+                userType.Activator = Activate_19_Pushpin;
                 userType.AddMemberName("Text");
                 AddToMapOfTypeToStandardName(typeof(global::System.String),
                                                    "String");
@@ -518,30 +514,16 @@ namespace App1.TorontoEventsA2_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case "Bing.Maps.MapLayer":
-                userType = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Bing.Maps.MapLayer), GetXamlTypeByName("Windows.UI.Xaml.Controls.Panel"));
-                userType.Activator = Activate_19_MapLayer;
-                userType.AddMemberName("Position");
-                userType.AddMemberName("PositionAnchor");
-                xamlType = userType;
-                break;
-
-            case "App1.MainPage":
-                userType = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::App1.MainPage), GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_20_MainPage;
-                xamlType = userType;
-                break;
-
             case "Bing.Maps.MapItemsControl":
                 userType = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Bing.Maps.MapItemsControl), GetXamlTypeByName("Windows.UI.Xaml.Controls.ItemsControl"));
-                userType.Activator = Activate_21_MapItemsControl;
+                userType.Activator = Activate_20_MapItemsControl;
                 userType.SetIsBindable();
                 xamlType = userType;
                 break;
 
             case "Bing.Maps.VenueMaps.VenueFloorDataSource":
                 userType = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Bing.Maps.VenueMaps.VenueFloorDataSource), GetXamlTypeByName("Object"));
-                userType.Activator = Activate_22_VenueFloorDataSource;
+                userType.Activator = Activate_21_VenueFloorDataSource;
                 userType.AddMemberName("Items");
                 AddToMapOfTypeToStandardName(typeof(global::Windows.Foundation.Collections.IObservableVector<global::System.Object>),
                                                    "Windows.Foundation.Collections.IObservableVector<Object>");
@@ -556,7 +538,7 @@ namespace App1.TorontoEventsA2_XamlTypeInfo
                 userType = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Windows.Foundation.Collections.IObservableVector<global::System.Object>), null);
                 AddToMapOfTypeToStandardName(typeof(global::Windows.Foundation.Collections.IObservableVector<global::System.Object>),
                                                    "Windows.Foundation.Collections.IObservableVector<Object>");
-                userType.CollectionAdd = VectorAdd_23_IObservableVector;
+                userType.CollectionAdd = VectorAdd_22_IObservableVector;
                 xamlType = userType;
                 break;
 
@@ -647,8 +629,8 @@ namespace App1.TorontoEventsA2_XamlTypeInfo
 
             case "Bing.Maps.LocationCollection":
                 userType = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Bing.Maps.LocationCollection), GetXamlTypeByName("Object"));
-                userType.Activator = Activate_27_LocationCollection;
-                userType.CollectionAdd = VectorAdd_27_LocationCollection;
+                userType.Activator = Activate_26_LocationCollection;
+                userType.CollectionAdd = VectorAdd_26_LocationCollection;
                 xamlType = userType;
                 break;
 
@@ -1150,163 +1132,147 @@ namespace App1.TorontoEventsA2_XamlTypeInfo
             var that = (global::Bing.Maps.Pushpin)instance;
             that.Text = (global::System.String)Value;
         }
-        private object get_53_MapLayer_Position(object instance)
-        {
-            return global::Bing.Maps.MapLayer.GetPosition((global::Windows.UI.Xaml.DependencyObject)instance);
-        }
-        private void set_53_MapLayer_Position(object instance, object Value)
-        {
-            global::Bing.Maps.MapLayer.SetPosition((global::Windows.UI.Xaml.DependencyObject)instance, (Bing.Maps.Location)Value);
-                    }
-        private object get_54_MapLayer_PositionAnchor(object instance)
-        {
-            return global::Bing.Maps.MapLayer.GetPositionAnchor((global::Windows.UI.Xaml.DependencyObject)instance);
-        }
-        private void set_54_MapLayer_PositionAnchor(object instance, object Value)
-        {
-            global::Bing.Maps.MapLayer.SetPositionAnchor((global::Windows.UI.Xaml.DependencyObject)instance, (Windows.Foundation.Point)Value);
-                    }
-        private object get_55_Location_Latitude(object instance)
-        {
-            var that = (global::Bing.Maps.Location)instance;
-            return that.Latitude;
-        }
-        private void set_55_Location_Latitude(object instance, object Value)
-        {
-            var that = (global::Bing.Maps.Location)instance;
-            that.Latitude = (global::System.Double)Value;
-        }
-        private object get_56_Location_Longitude(object instance)
-        {
-            var that = (global::Bing.Maps.Location)instance;
-            return that.Longitude;
-        }
-        private void set_56_Location_Longitude(object instance, object Value)
-        {
-            var that = (global::Bing.Maps.Location)instance;
-            that.Longitude = (global::System.Double)Value;
-        }
-        private object get_57_VenueFloorDataSource_Items(object instance)
+        private object get_53_VenueFloorDataSource_Items(object instance)
         {
             var that = (global::Bing.Maps.VenueMaps.VenueFloorDataSource)instance;
             return that.Items;
         }
-        private object get_58_VenueFloorDataSource_Name(object instance)
+        private object get_54_VenueFloorDataSource_Name(object instance)
         {
             var that = (global::Bing.Maps.VenueMaps.VenueFloorDataSource)instance;
             return that.Name;
         }
-        private void set_58_VenueFloorDataSource_Name(object instance, object Value)
+        private void set_54_VenueFloorDataSource_Name(object instance, object Value)
         {
             var that = (global::Bing.Maps.VenueMaps.VenueFloorDataSource)instance;
             that.Name = (global::System.String)Value;
         }
-        private object get_59_VenueEntity_Highlighted(object instance)
+        private object get_55_VenueEntity_Highlighted(object instance)
         {
             var that = (global::Bing.Maps.VenueMaps.VenueEntity)instance;
             return that.Highlighted;
         }
-        private object get_60_VenueEntity_LineWidth(object instance)
+        private object get_56_VenueEntity_LineWidth(object instance)
         {
             var that = (global::Bing.Maps.VenueMaps.VenueEntity)instance;
             return that.LineWidth;
         }
-        private void set_60_VenueEntity_LineWidth(object instance, object Value)
+        private void set_56_VenueEntity_LineWidth(object instance, object Value)
         {
             var that = (global::Bing.Maps.VenueMaps.VenueEntity)instance;
             that.LineWidth = (global::System.Double)Value;
         }
-        private object get_61_VenueEntity_HighlightColor(object instance)
+        private object get_57_VenueEntity_HighlightColor(object instance)
         {
             var that = (global::Bing.Maps.VenueMaps.VenueEntity)instance;
             return that.HighlightColor;
         }
-        private void set_61_VenueEntity_HighlightColor(object instance, object Value)
+        private void set_57_VenueEntity_HighlightColor(object instance, object Value)
         {
             var that = (global::Bing.Maps.VenueMaps.VenueEntity)instance;
             that.HighlightColor = (global::Windows.UI.Color)Value;
         }
-        private object get_62_VenueEntity_FillColor(object instance)
+        private object get_58_VenueEntity_FillColor(object instance)
         {
             var that = (global::Bing.Maps.VenueMaps.VenueEntity)instance;
             return that.FillColor;
         }
-        private void set_62_VenueEntity_FillColor(object instance, object Value)
+        private void set_58_VenueEntity_FillColor(object instance, object Value)
         {
             var that = (global::Bing.Maps.VenueMaps.VenueEntity)instance;
             that.FillColor = (global::Windows.UI.Color)Value;
         }
-        private object get_63_VenueEntity_LineColor(object instance)
+        private object get_59_VenueEntity_LineColor(object instance)
         {
             var that = (global::Bing.Maps.VenueMaps.VenueEntity)instance;
             return that.LineColor;
         }
-        private void set_63_VenueEntity_LineColor(object instance, object Value)
+        private void set_59_VenueEntity_LineColor(object instance, object Value)
         {
             var that = (global::Bing.Maps.VenueMaps.VenueEntity)instance;
             that.LineColor = (global::Windows.UI.Color)Value;
         }
-        private object get_64_VenueEntity_Type(object instance)
+        private object get_60_VenueEntity_Type(object instance)
         {
             var that = (global::Bing.Maps.VenueMaps.VenueEntity)instance;
             return that.Type;
         }
-        private object get_65_VenueEntity_PhoneNumber(object instance)
+        private object get_61_VenueEntity_PhoneNumber(object instance)
         {
             var that = (global::Bing.Maps.VenueMaps.VenueEntity)instance;
             return that.PhoneNumber;
         }
-        private object get_66_VenueEntity_Name(object instance)
+        private object get_62_VenueEntity_Name(object instance)
         {
             var that = (global::Bing.Maps.VenueMaps.VenueEntity)instance;
             return that.Name;
         }
-        private object get_67_VenueEntity_Outline(object instance)
+        private object get_63_VenueEntity_Outline(object instance)
         {
             var that = (global::Bing.Maps.VenueMaps.VenueEntity)instance;
             return that.Outline;
         }
-        private object get_68_VenueEntity_Id(object instance)
+        private object get_64_Location_Longitude(object instance)
+        {
+            var that = (global::Bing.Maps.Location)instance;
+            return that.Longitude;
+        }
+        private void set_64_Location_Longitude(object instance, object Value)
+        {
+            var that = (global::Bing.Maps.Location)instance;
+            that.Longitude = (global::System.Double)Value;
+        }
+        private object get_65_Location_Latitude(object instance)
+        {
+            var that = (global::Bing.Maps.Location)instance;
+            return that.Latitude;
+        }
+        private void set_65_Location_Latitude(object instance, object Value)
+        {
+            var that = (global::Bing.Maps.Location)instance;
+            that.Latitude = (global::System.Double)Value;
+        }
+        private object get_66_VenueEntity_Id(object instance)
         {
             var that = (global::Bing.Maps.VenueMaps.VenueEntity)instance;
             return that.Id;
         }
-        private object get_69_VenueEntity_FloorName(object instance)
+        private object get_67_VenueEntity_FloorName(object instance)
         {
             var that = (global::Bing.Maps.VenueMaps.VenueEntity)instance;
             return that.FloorName;
         }
-        private object get_70_VenueEntity_Floor(object instance)
+        private object get_68_VenueEntity_Floor(object instance)
         {
             var that = (global::Bing.Maps.VenueMaps.VenueEntity)instance;
             return that.Floor;
         }
-        private object get_71_VenueEntity_Location(object instance)
+        private object get_69_VenueEntity_Location(object instance)
         {
             var that = (global::Bing.Maps.VenueMaps.VenueEntity)instance;
             return that.Location;
         }
-        private object get_72_VenueEntity_Description(object instance)
+        private object get_70_VenueEntity_Description(object instance)
         {
             var that = (global::Bing.Maps.VenueMaps.VenueEntity)instance;
             return that.Description;
         }
-        private object get_73_VenueEntity_CategoryName(object instance)
+        private object get_71_VenueEntity_CategoryName(object instance)
         {
             var that = (global::Bing.Maps.VenueMaps.VenueEntity)instance;
             return that.CategoryName;
         }
-        private object get_74_VenueEntity_CategoryId(object instance)
+        private object get_72_VenueEntity_CategoryId(object instance)
         {
             var that = (global::Bing.Maps.VenueMaps.VenueEntity)instance;
             return that.CategoryId;
         }
-        private object get_75_VenueEntity_BusinessId(object instance)
+        private object get_73_VenueEntity_BusinessId(object instance)
         {
             var that = (global::Bing.Maps.VenueMaps.VenueEntity)instance;
             return that.BusinessId;
         }
-        private object get_76_VenueEntity_Address(object instance)
+        private object get_74_VenueEntity_Address(object instance)
         {
             var that = (global::Bing.Maps.VenueMaps.VenueEntity)instance;
             return that.Address;
@@ -1637,153 +1603,136 @@ namespace App1.TorontoEventsA2_XamlTypeInfo
                 xamlMember.Getter = get_52_Pushpin_Text;
                 xamlMember.Setter = set_52_Pushpin_Text;
                 break;
-            case "Bing.Maps.MapLayer.Position":
-                userType = (global::App1.TorontoEventsA2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Bing.Maps.MapLayer");
-                xamlMember = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlMember(this, "Position", "Bing.Maps.Location");
-                xamlMember.SetTargetTypeName("Windows.UI.Xaml.DependencyObject");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.SetIsAttachable();
-                xamlMember.Getter = get_53_MapLayer_Position;
-                xamlMember.Setter = set_53_MapLayer_Position;
-                break;
-            case "Bing.Maps.MapLayer.PositionAnchor":
-                userType = (global::App1.TorontoEventsA2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Bing.Maps.MapLayer");
-                xamlMember = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlMember(this, "PositionAnchor", "Windows.Foundation.Point");
-                xamlMember.SetTargetTypeName("Windows.UI.Xaml.DependencyObject");
-                xamlMember.SetIsAttachable();
-                xamlMember.Getter = get_54_MapLayer_PositionAnchor;
-                xamlMember.Setter = set_54_MapLayer_PositionAnchor;
-                break;
-            case "Bing.Maps.Location.Latitude":
-                userType = (global::App1.TorontoEventsA2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Bing.Maps.Location");
-                xamlMember = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlMember(this, "Latitude", "Double");
-                xamlMember.Getter = get_55_Location_Latitude;
-                xamlMember.Setter = set_55_Location_Latitude;
-                break;
-            case "Bing.Maps.Location.Longitude":
-                userType = (global::App1.TorontoEventsA2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Bing.Maps.Location");
-                xamlMember = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlMember(this, "Longitude", "Double");
-                xamlMember.Getter = get_56_Location_Longitude;
-                xamlMember.Setter = set_56_Location_Longitude;
-                break;
             case "Bing.Maps.VenueMaps.VenueFloorDataSource.Items":
                 userType = (global::App1.TorontoEventsA2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Bing.Maps.VenueMaps.VenueFloorDataSource");
                 xamlMember = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlMember(this, "Items", "Windows.Foundation.Collections.IObservableVector<Object>");
-                xamlMember.Getter = get_57_VenueFloorDataSource_Items;
+                xamlMember.Getter = get_53_VenueFloorDataSource_Items;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Bing.Maps.VenueMaps.VenueFloorDataSource.Name":
                 userType = (global::App1.TorontoEventsA2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Bing.Maps.VenueMaps.VenueFloorDataSource");
                 xamlMember = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlMember(this, "Name", "String");
-                xamlMember.Getter = get_58_VenueFloorDataSource_Name;
-                xamlMember.Setter = set_58_VenueFloorDataSource_Name;
+                xamlMember.Getter = get_54_VenueFloorDataSource_Name;
+                xamlMember.Setter = set_54_VenueFloorDataSource_Name;
                 break;
             case "Bing.Maps.VenueMaps.VenueEntity.Highlighted":
                 userType = (global::App1.TorontoEventsA2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Bing.Maps.VenueMaps.VenueEntity");
                 xamlMember = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlMember(this, "Highlighted", "Boolean");
-                xamlMember.Getter = get_59_VenueEntity_Highlighted;
+                xamlMember.Getter = get_55_VenueEntity_Highlighted;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Bing.Maps.VenueMaps.VenueEntity.LineWidth":
                 userType = (global::App1.TorontoEventsA2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Bing.Maps.VenueMaps.VenueEntity");
                 xamlMember = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlMember(this, "LineWidth", "Double");
-                xamlMember.Getter = get_60_VenueEntity_LineWidth;
-                xamlMember.Setter = set_60_VenueEntity_LineWidth;
+                xamlMember.Getter = get_56_VenueEntity_LineWidth;
+                xamlMember.Setter = set_56_VenueEntity_LineWidth;
                 break;
             case "Bing.Maps.VenueMaps.VenueEntity.HighlightColor":
                 userType = (global::App1.TorontoEventsA2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Bing.Maps.VenueMaps.VenueEntity");
                 xamlMember = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlMember(this, "HighlightColor", "Windows.UI.Color");
-                xamlMember.Getter = get_61_VenueEntity_HighlightColor;
-                xamlMember.Setter = set_61_VenueEntity_HighlightColor;
+                xamlMember.Getter = get_57_VenueEntity_HighlightColor;
+                xamlMember.Setter = set_57_VenueEntity_HighlightColor;
                 break;
             case "Bing.Maps.VenueMaps.VenueEntity.FillColor":
                 userType = (global::App1.TorontoEventsA2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Bing.Maps.VenueMaps.VenueEntity");
                 xamlMember = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlMember(this, "FillColor", "Windows.UI.Color");
-                xamlMember.Getter = get_62_VenueEntity_FillColor;
-                xamlMember.Setter = set_62_VenueEntity_FillColor;
+                xamlMember.Getter = get_58_VenueEntity_FillColor;
+                xamlMember.Setter = set_58_VenueEntity_FillColor;
                 break;
             case "Bing.Maps.VenueMaps.VenueEntity.LineColor":
                 userType = (global::App1.TorontoEventsA2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Bing.Maps.VenueMaps.VenueEntity");
                 xamlMember = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlMember(this, "LineColor", "Windows.UI.Color");
-                xamlMember.Getter = get_63_VenueEntity_LineColor;
-                xamlMember.Setter = set_63_VenueEntity_LineColor;
+                xamlMember.Getter = get_59_VenueEntity_LineColor;
+                xamlMember.Setter = set_59_VenueEntity_LineColor;
                 break;
             case "Bing.Maps.VenueMaps.VenueEntity.Type":
                 userType = (global::App1.TorontoEventsA2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Bing.Maps.VenueMaps.VenueEntity");
                 xamlMember = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlMember(this, "Type", "Bing.Maps.VenueMaps.VenueEntityType");
-                xamlMember.Getter = get_64_VenueEntity_Type;
+                xamlMember.Getter = get_60_VenueEntity_Type;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Bing.Maps.VenueMaps.VenueEntity.PhoneNumber":
                 userType = (global::App1.TorontoEventsA2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Bing.Maps.VenueMaps.VenueEntity");
                 xamlMember = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlMember(this, "PhoneNumber", "String");
-                xamlMember.Getter = get_65_VenueEntity_PhoneNumber;
+                xamlMember.Getter = get_61_VenueEntity_PhoneNumber;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Bing.Maps.VenueMaps.VenueEntity.Name":
                 userType = (global::App1.TorontoEventsA2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Bing.Maps.VenueMaps.VenueEntity");
                 xamlMember = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlMember(this, "Name", "String");
-                xamlMember.Getter = get_66_VenueEntity_Name;
+                xamlMember.Getter = get_62_VenueEntity_Name;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Bing.Maps.VenueMaps.VenueEntity.Outline":
                 userType = (global::App1.TorontoEventsA2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Bing.Maps.VenueMaps.VenueEntity");
                 xamlMember = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlMember(this, "Outline", "Bing.Maps.LocationCollection");
-                xamlMember.Getter = get_67_VenueEntity_Outline;
+                xamlMember.Getter = get_63_VenueEntity_Outline;
                 xamlMember.SetIsReadOnly();
+                break;
+            case "Bing.Maps.Location.Longitude":
+                userType = (global::App1.TorontoEventsA2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Bing.Maps.Location");
+                xamlMember = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlMember(this, "Longitude", "Double");
+                xamlMember.Getter = get_64_Location_Longitude;
+                xamlMember.Setter = set_64_Location_Longitude;
+                break;
+            case "Bing.Maps.Location.Latitude":
+                userType = (global::App1.TorontoEventsA2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Bing.Maps.Location");
+                xamlMember = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlMember(this, "Latitude", "Double");
+                xamlMember.Getter = get_65_Location_Latitude;
+                xamlMember.Setter = set_65_Location_Latitude;
                 break;
             case "Bing.Maps.VenueMaps.VenueEntity.Id":
                 userType = (global::App1.TorontoEventsA2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Bing.Maps.VenueMaps.VenueEntity");
                 xamlMember = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlMember(this, "Id", "Int32");
-                xamlMember.Getter = get_68_VenueEntity_Id;
+                xamlMember.Getter = get_66_VenueEntity_Id;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Bing.Maps.VenueMaps.VenueEntity.FloorName":
                 userType = (global::App1.TorontoEventsA2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Bing.Maps.VenueMaps.VenueEntity");
                 xamlMember = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlMember(this, "FloorName", "String");
-                xamlMember.Getter = get_69_VenueEntity_FloorName;
+                xamlMember.Getter = get_67_VenueEntity_FloorName;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Bing.Maps.VenueMaps.VenueEntity.Floor":
                 userType = (global::App1.TorontoEventsA2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Bing.Maps.VenueMaps.VenueEntity");
                 xamlMember = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlMember(this, "Floor", "Bing.Maps.VenueMaps.Floor");
-                xamlMember.Getter = get_70_VenueEntity_Floor;
+                xamlMember.Getter = get_68_VenueEntity_Floor;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Bing.Maps.VenueMaps.VenueEntity.Location":
                 userType = (global::App1.TorontoEventsA2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Bing.Maps.VenueMaps.VenueEntity");
                 xamlMember = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlMember(this, "Location", "Bing.Maps.Location");
-                xamlMember.Getter = get_71_VenueEntity_Location;
+                xamlMember.Getter = get_69_VenueEntity_Location;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Bing.Maps.VenueMaps.VenueEntity.Description":
                 userType = (global::App1.TorontoEventsA2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Bing.Maps.VenueMaps.VenueEntity");
                 xamlMember = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlMember(this, "Description", "String");
-                xamlMember.Getter = get_72_VenueEntity_Description;
+                xamlMember.Getter = get_70_VenueEntity_Description;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Bing.Maps.VenueMaps.VenueEntity.CategoryName":
                 userType = (global::App1.TorontoEventsA2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Bing.Maps.VenueMaps.VenueEntity");
                 xamlMember = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlMember(this, "CategoryName", "String");
-                xamlMember.Getter = get_73_VenueEntity_CategoryName;
+                xamlMember.Getter = get_71_VenueEntity_CategoryName;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Bing.Maps.VenueMaps.VenueEntity.CategoryId":
                 userType = (global::App1.TorontoEventsA2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Bing.Maps.VenueMaps.VenueEntity");
                 xamlMember = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlMember(this, "CategoryId", "String");
-                xamlMember.Getter = get_74_VenueEntity_CategoryId;
+                xamlMember.Getter = get_72_VenueEntity_CategoryId;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Bing.Maps.VenueMaps.VenueEntity.BusinessId":
                 userType = (global::App1.TorontoEventsA2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Bing.Maps.VenueMaps.VenueEntity");
                 xamlMember = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlMember(this, "BusinessId", "String");
-                xamlMember.Getter = get_75_VenueEntity_BusinessId;
+                xamlMember.Getter = get_73_VenueEntity_BusinessId;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Bing.Maps.VenueMaps.VenueEntity.Address":
                 userType = (global::App1.TorontoEventsA2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Bing.Maps.VenueMaps.VenueEntity");
                 xamlMember = new global::App1.TorontoEventsA2_XamlTypeInfo.XamlMember(this, "Address", "Bing.Maps.VenueMaps.VenueAddress");
-                xamlMember.Getter = get_76_VenueEntity_Address;
+                xamlMember.Getter = get_74_VenueEntity_Address;
                 xamlMember.SetIsReadOnly();
                 break;
             }

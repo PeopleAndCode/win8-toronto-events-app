@@ -269,6 +269,9 @@
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\facul_000\Documents\GitHub\win8-toronto-events-app\Toront-Events\App1\Resources\events.xml">
+      <PackagePath>Resources\events.xml</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\facul_000\Documents\GitHub\win8-toronto-events-app\Toront-Events\App1\bin\x86\Debug\App.xaml">
       <PackagePath>App.xaml</PackagePath>
     </AppxPackagedFile>

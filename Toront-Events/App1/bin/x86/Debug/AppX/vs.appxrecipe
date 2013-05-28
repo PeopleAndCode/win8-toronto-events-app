@@ -16,17 +16,17 @@
     <AppXManifest Include="C:\Users\facul_000\Documents\GitHub\win8-toronto-events-app\Toront-Events\App1\bin\x86\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-05-27T22:16:18.283</Modified>
+      <Modified>2013-05-28T19:16:52.491</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\facul_000\Documents\GitHub\win8-toronto-events-app\Toront-Events\App1\bin\x86\Debug\App1.exe">
       <PackagePath>App1.exe</PackagePath>
-      <Modified>2013-05-27T22:50:18.009</Modified>
+      <Modified>2013-05-28T21:19:52.134</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\facul_000\Documents\GitHub\win8-toronto-events-app\Toront-Events\App1\bin\x86\Debug\App1.pdb">
       <PackagePath>App1.pdb</PackagePath>
-      <Modified>2013-05-27T22:50:18.001</Modified>
+      <Modified>2013-05-28T21:19:52.127</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\facul_000\AppData\Local\Microsoft SDKs\Windows\v8.0\ExtensionSDKs\Bing.Maps.Xaml\1.0\References\commonconfiguration\neutral\Bing.Maps.winmd">
       <PackagePath>Bing.Maps.winmd</PackagePath>
@@ -360,6 +360,10 @@
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2012-03-16T00:42:52.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\facul_000\Documents\GitHub\win8-toronto-events-app\Toront-Events\App1\Resources\events.xml">
+      <PackagePath>Resources\events.xml</PackagePath>
+      <Modified>2013-05-28T21:00:28.521</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\facul_000\Documents\GitHub\win8-toronto-events-app\Toront-Events\App1\bin\x86\Debug\App.xaml">
       <PackagePath>App.xaml</PackagePath>
       <Modified>2013-05-27T20:50:20.745</Modified>
@@ -370,11 +374,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\facul_000\Documents\GitHub\win8-toronto-events-app\Toront-Events\App1\bin\x86\Debug\MainPage.xaml">
       <PackagePath>MainPage.xaml</PackagePath>
-      <Modified>2013-05-27T21:58:01.068</Modified>
+      <Modified>2013-05-28T16:21:03.241</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\facul_000\Documents\GitHub\win8-toronto-events-app\Toront-Events\App1\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2013-05-27T18:37:58.001</Modified>
+      <Modified>2013-05-28T19:16:51.980</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

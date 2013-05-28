@@ -11,19 +11,54 @@ namespace App1
 
     public class LocationTag
     {
-        public String name, info;
+        public String eventName, area, presentedByOrgName, image, dateBeginShow, timeBegin, dateEndShow, timeEnd, admissionFee, longDesc, 
+            orgContactPhone, locationName, mapAddress, ttc, eventURL, orgContactEmail, accessibleFully, parkingFee, publicWashrooms, accessiblePartially,
+            parkingPaid, foodBeverage, shopping, exhibit, performance, kidFriendly, history, green, newThisYear, reservations, officialGreenSite, 
+            bikeRacks, roadClose, organicFood;
+        public String[] categoryList;
         public Location location;
 
-        public LocationTag(String name, double longitude, double latitude, String info)
+        public LocationTag()
         {
-            this.name = name;
-            this.location = new Location(longitude, latitude);
-            this.info = info;
+            eventName = "unavailable";
+            area = "unavailable";
+            presentedByOrgName = "unknown";
+            image = "unavailable";
+            dateBeginShow = "TBA";
+            timeBegin = "TBA";
+            dateEndShow = "TBA";
+            timeEnd = "TBA";
+            admissionFee = "unavailable";
+            longDesc = "No further description available.";
+            orgContactPhone = "unavailable";
+            locationName = "unknown";
+            mapAddress = "unavailable";
+            ttc = "unavailable";
+            eventURL = "unavailable";
+            orgContactEmail = "unavailable";
+            accessibleFully = "unknown";
+            parkingFee = "unknown";
+            publicWashrooms = "Number and locations unknown";
+            accessiblePartially = "unknown";
+            parkingPaid = "not sure";
+            foodBeverage = "unsure";
+            shopping = "unsure";
+            exhibit = "unknown";
+            performance = "unknown";
+            kidFriendly = "unknown";
+            history = "Not available at this moment.";
+            green = "unsure";
+            newThisYear = "unknown";
+            reservations = "unavailable";
+            officialGreenSite = "unsure";
+            bikeRacks = "unsure";
+            roadClose = "unsure";
+            organicFood = "unsure";
         }
 
         public override String ToString()
         {
-            return name;
+            return eventName;
         }
     }
 }
