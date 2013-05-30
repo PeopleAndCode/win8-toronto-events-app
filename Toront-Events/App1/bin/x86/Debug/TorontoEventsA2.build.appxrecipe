@@ -253,6 +253,9 @@
     <AppxPackagedFile Include="C:\Users\facul_000\AppData\Local\Microsoft SDKs\Windows\v8.0\ExtensionSDKs\Bing.Maps.Xaml\1.0\Redist\CommonConfiguration\neutral\Bing.Maps\UnifiedStyle.MapStyle">
       <PackagePath>Bing.Maps\UnifiedStyle.MapStyle</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\facul_000\Documents\GitHub\win8-toronto-events-app\Toront-Events\App1\Resources\library-data.xml">
+      <PackagePath>Resources\library-data.xml</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\facul_000\Documents\GitHub\win8-toronto-events-app\Toront-Events\App1\Assets\Logo.png">
       <PackagePath>Assets\Logo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
@@ -268,9 +271,6 @@
     <AppxPackagedFile Include="C:\Users\facul_000\Documents\GitHub\win8-toronto-events-app\Toront-Events\App1\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\facul_000\Documents\GitHub\win8-toronto-events-app\Toront-Events\App1\Resources\events.xml">
-      <PackagePath>Resources\events.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\facul_000\Documents\GitHub\win8-toronto-events-app\Toront-Events\App1\bin\x86\Debug\App.xaml">
       <PackagePath>App.xaml</PackagePath>

@@ -20,6 +20,9 @@ namespace App1
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        public const bool DEBUG = false;
+        private Dictionary<string, LocationTag> tags;
+        private Dictionary<string, ListBoxItem> itemTags;
 
         public MainPage()
         {
@@ -34,100 +37,129 @@ namespace App1
 
             myMap.Center = new Location(43.77091, -79.41133);
             myMap.ZoomLevel = 12;
-            myMap.MapType = MapType.Aerial;
+            myMap.MapType = MapType.Road;
 
-            LocationTag hTag = new LocationTag("Crystal's house", 43.77091, -79.41133,
-                "WHAT DO YOU WANT FROM ME??");
-            LocationTag pTag = new LocationTag("People&Code Home Base", 43.650374, -79.393859,
-                "DANSZE IS HERE.  HE's REALLY DAMN CUTE YOUSHOULD COME AND SHMEX HIM");
-
-
-            locationList.Items.Add(new LocationTag("Crystal's house", 43.77091, -79.41133, "WHAT DO YOU WANT FROM ME??"));
-            locationList.Items.Add(new LocationTag("People&Code Home Base", 43.650374, -79.393859, "DANSZE IS HERE.  HE's REALLY DAMN CUTE YOUSHOULD COME AND SHMEX HIM"));
 
             //add items to document
-            this.Read("Resources/events.xml");
+            this.ReadAndAdd("Resources/library-data.xml");
 
-            //example pushpin
-            Pushpin pushpin = new Pushpin();
-            pushpin.Text = "WHAT yoUCLOCKEDONMOIOIOIOI";
-            MapLayer.SetPosition(pushpin, new Location(43.77091, -79.41133));
-
-            myMap.Children.Add(pushpin);
         }
 
 
-        public void Read(string fileName)
+        public void ReadAndAdd(string fileName)
         {
-            Debug.WriteLine(">>> START XML PARSING");
+            Debug.WriteLineIf(DEBUG, ">>> START XML PARSING");
 
-            XmlReader reader = XmlReader.Create("Resources/events.xml");
+            XmlReader reader = XmlReader.Create(fileName);
 
-            // Parse the file and display each of the nodes.
+            // Parse the file and add locations to list
+            LocationTag hTag = null;
+            tags = new Dictionary<string, LocationTag>();
+            itemTags = new Dictionary<string, ListBoxItem>();
+
             while (reader.Read())
             {
                 if (reader.NodeType == XmlNodeType.Element)
                 {
                     //handle the main entries container
-                    if (reader.Name.Equals("viewentries"))
+                    if (reader.Name.Equals("Placemark"))
                     {
-                        Debug.WriteLine(">>>Found main entry list! Looking in!");
-                        while (reader.Read())
-                        {
-                            //handle the entries
-                            if (reader.Name.Equals("viewentry"))
-                            {
-                                Debug.WriteLine(">>> >>>Found entry #" + reader.GetAttribute("position") + "! Looking in.");
-                            }
-
-                        }
-
-                        Debug.WriteLine(">>>End of main entry list! YAY!");
+                        Debug.WriteLineIf(DEBUG, ">>> >>>start new place mark entry"); 
+                        hTag = new LocationTag();
                     }
+
+                    if (reader.Name.Equals("name"))
+                    {
+                        hTag.name = reader.ReadElementContentAsString();
+                        Debug.WriteLineIf(DEBUG, ">>> >>> >>>name of place: " + hTag.name);
+                    }
+
+                    if (reader.Name.Equals("description"))
+                    {
+                        hTag.description = reader.ReadElementContentAsString();
+                        Debug.WriteLineIf(DEBUG, ">>> >>> >>>description: " + hTag.description);
+                    }
+
+                    if (reader.Name.Equals("address"))
+                    {
+                        hTag.address = reader.ReadElementContentAsString();
+                        Debug.WriteLineIf(DEBUG, ">>> >>> >>>address: " + hTag.address);
+                    }
+
+                    if (reader.Name.Equals("phoneNumber"))
+                    {
+                        hTag.phoneNumber = reader.ReadElementContentAsString();
+                        Debug.WriteLineIf(DEBUG, ">>> >>> >>>phone: " + hTag.address);
+                    }
+
+                    if (reader.Name.Equals("coordinates"))
+                    {
+                        string loc = reader.ReadElementContentAsString();
+                        hTag.location = new Location(Double.Parse(loc.Split(',')[1]), Double.Parse(loc.Split(',')[0]));
+                        Debug.WriteLineIf(DEBUG, ">>> >>> >>>location: " + hTag.location);
+                    }
+
+
                 }
 
 
-                if (reader.NodeType == XmlNodeType.EndElement)
+                if (reader.NodeType == XmlNodeType.EndElement && reader.Name.Equals("Placemark"))
                 {
-                    Debug.WriteLine("END NAME: " + reader.Name);
+
+                    ListBoxItem item = new ListBoxItem();
+                    item.Content = hTag.name;
+                    locationList.Items.Add(item);
+                    item.Tapped += new Windows.UI.Xaml.Input.TappedEventHandler(entryTapped);
+
+                    tags.Add(hTag.name, hTag);
+                    itemTags.Add(hTag.name, item);
+
+
+                    //adds pushpin for the current entry pushpin
+                    Pushpin pushpin = new Pushpin();
+                    pushpin.Tapped += new Windows.UI.Xaml.Input.TappedEventHandler(entryTapped);
+                    pushpin.Text = hTag.name;
+                    MapLayer.SetPosition(pushpin, hTag.location);
+                    myMap.Children.Add(pushpin);
+
+                    Debug.WriteLineIf(DEBUG, ">>> >>>end of place mark entry");
                 }
-                //switch (reader.NodeType)
-                //{
-                //    case XmlNodeType.Element:
-                //        //Debug.WriteLine(reader.Name);
-                //        Debug.WriteLine("ELEMENT>> NAME: " + reader.Name + " VALUE: " + reader.Value);
-                //        break;
-                //    case XmlNodeType.Text:
-                //        Debug.WriteLine("TEXT VALUE: " + reader.Value);
-                //        break;
-                //    case XmlNodeType.XmlDeclaration:
-                //        break;
-                //    case XmlNodeType.ProcessingInstruction:
-                //        //Debug.WriteLine(reader.Name + "::::::::" + reader.Value);
-                //        break;
-                //    case XmlNodeType.Comment:
-                //        //Debug.WriteLine(reader.Value);
-                //        break;
-                //    case XmlNodeType.EndElement:
-                //        //Debug.WriteLine("END!!");
-                //        break;
-                //}
             }
 
-            Debug.WriteLine(">>> END OF XML PARSING");
+            Debug.WriteLineIf(DEBUG, ">>> END OF XML PARSING");
         }
  
 
-        private async void pushpinTapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        private async void entryTapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
-            MessageDialog dialog = new MessageDialog("Hello from Seattle.");
-            await dialog.ShowAsync();
+            String name = null;
+
+            if (sender is ListBoxItem)
+            {
+                name = (sender as ListBoxItem).Content.ToString();
+            }
+            if (sender is Pushpin)
+            {
+                name = (sender as Pushpin).Text.ToString();
+
+                locationList.SelectedItem = itemTags[name];
+                locationList.ScrollIntoView(itemTags[name]);
+            }
+
+            LocationTag hTag = tags[name];
+
+            myMap.SetView(hTag.location, 15.5);
+
+            nameBlock.Text = hTag.name;
+            addressBlock.Text = hTag.address;
+            phoneBlock.Text = "Phone: " + hTag.phoneNumber;
+
         }
 
         private async void listTapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
-            LocationTag selectedTag = ((LocationTag) (locationList.SelectedItem));
-            myMap.Center = selectedTag.location;
+            //LocationTag selectedTag = ((LocationTag) (locationList.SelectedItem));
+            //myMap.Center = selectedTag.location;
 
             //MessageDialog dialog = new MessageDialog(selectedTag.info);
             //await dialog.ShowAsync();

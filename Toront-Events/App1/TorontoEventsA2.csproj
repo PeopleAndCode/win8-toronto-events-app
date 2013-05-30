@@ -123,13 +123,13 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <None Include="App1_TemporaryKey.pfx" />
+    <Content Include="Resources\library-data.xml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Logo.png" />
     <Content Include="Assets\SmallLogo.png" />
     <Content Include="Assets\SplashScreen.png" />
     <Content Include="Assets\StoreLogo.png" />
-    <Content Include="Resources\events.xml" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

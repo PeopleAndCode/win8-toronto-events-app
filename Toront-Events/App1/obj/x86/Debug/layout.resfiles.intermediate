@@ -5,4 +5,4 @@ Assets\StoreLogo.png
 App.xaml
 Common\StandardStyles.xaml
 MainPage.xaml
-Resources\events.xml
+Resources\library-data.xml

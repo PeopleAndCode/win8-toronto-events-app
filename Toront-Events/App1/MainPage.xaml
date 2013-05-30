@@ -12,17 +12,28 @@
 
         <Grid x:Name="mapGrid" Margin="0, 0, 0, 0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="967*"/>
-                <ColumnDefinition Width="399*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="300"/>
             </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
 
             <bm:Map Credentials="Apvq3Hzd4CGpbE2UNhuF5htbMoIGN78-ZOXWCn4wHzFhMqlmDax0eYcv7irOFnna" 
-                x:Name="myMap">
+                x:Name="myMap" Grid.RowSpan="2">
             </bm:Map>
 
 
-            <ListBox x:Name="locationList" Margin="10" Grid.RowSpan="1" Grid.Column="1" Tapped="listTapped">
+            <ListBox x:Name="locationList" Margin="0" Grid.RowSpan="1" Grid.Row="1" Grid.Column="1" Tapped="listTapped" >
             </ListBox>
+
+            <StackPanel Grid.Column="1" Margin="10">
+                <TextBlock x:Name="nameBlock" FontSize="36" TextTrimming="None" TextWrapping="Wrap">Choose a branch</TextBlock>
+                <TextBlock x:Name="phoneBlock" FontSize="18" TextWrapping="Wrap">Tap on the map or search for the branch in the list below.</TextBlock>
+                <TextBlock x:Name="addressBlock" FontSize="12"></TextBlock>
+            </StackPanel>
+            
 
         </Grid>
     </Grid>
