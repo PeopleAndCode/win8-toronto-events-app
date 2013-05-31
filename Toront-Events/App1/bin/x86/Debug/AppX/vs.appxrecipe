@@ -22,11 +22,11 @@
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\facul_000\Documents\GitHub\win8-toronto-events-app\Toront-Events\App1\bin\x86\Debug\App1.exe">
       <PackagePath>App1.exe</PackagePath>
-      <Modified>2013-05-30T20:47:22.720</Modified>
+      <Modified>2013-05-31T14:41:29.401</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\facul_000\Documents\GitHub\win8-toronto-events-app\Toront-Events\App1\bin\x86\Debug\App1.pdb">
       <PackagePath>App1.pdb</PackagePath>
-      <Modified>2013-05-30T20:47:22.711</Modified>
+      <Modified>2013-05-31T14:41:29.393</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\facul_000\AppData\Local\Microsoft SDKs\Windows\v8.0\ExtensionSDKs\Bing.Maps.Xaml\1.0\References\commonconfiguration\neutral\Bing.Maps.winmd">
       <PackagePath>Bing.Maps.winmd</PackagePath>
@@ -374,7 +374,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\facul_000\Documents\GitHub\win8-toronto-events-app\Toront-Events\App1\bin\x86\Debug\MainPage.xaml">
       <PackagePath>MainPage.xaml</PackagePath>
-      <Modified>2013-05-30T18:36:05.564</Modified>
+      <Modified>2013-05-30T21:39:59.208</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\facul_000\Documents\GitHub\win8-toronto-events-app\Toront-Events\App1\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
