@@ -123,6 +123,7 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <None Include="App1_TemporaryKey.pfx" />
+    <Content Include="Resources\Images\pin.png" />
     <Content Include="Resources\library-data.xml" />
   </ItemGroup>
   <ItemGroup>

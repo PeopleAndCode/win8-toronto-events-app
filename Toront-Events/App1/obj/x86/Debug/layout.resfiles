@@ -5,4 +5,5 @@ Assets\StoreLogo.png
 App.xaml
 Common\StandardStyles.xaml
 MainPage.xaml
+Resources\Images\pin.png
 Resources\library-data.xml

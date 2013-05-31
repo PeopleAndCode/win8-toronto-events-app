@@ -7,8 +7,11 @@ using System.Xml;
 using System.Xml.Linq;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Popups;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -23,6 +26,8 @@ namespace App1
         public const bool DEBUG = false;
         private Dictionary<string, LocationTag> tags;
         private Dictionary<string, ListBoxItem> itemTags;
+        private Dictionary<string, Pushpin> pinTags;
+        private Pushpin lastPin = null;
 
         public MainPage()
         {
@@ -56,6 +61,7 @@ namespace App1
             LocationTag hTag = null;
             tags = new Dictionary<string, LocationTag>();
             itemTags = new Dictionary<string, ListBoxItem>();
+            pinTags = new Dictionary<string, Pushpin>();
 
             while (reader.Read())
             {
@@ -111,16 +117,19 @@ namespace App1
                     locationList.Items.Add(item);
                     item.Tapped += new Windows.UI.Xaml.Input.TappedEventHandler(entryTapped);
 
-                    tags.Add(hTag.name, hTag);
-                    itemTags.Add(hTag.name, item);
-
-
                     //adds pushpin for the current entry pushpin
                     Pushpin pushpin = new Pushpin();
+                    Style style = App.Current.Resources["PushPinStyle"] as Style;
+                    //pushpin.Style = style;
                     pushpin.Tapped += new Windows.UI.Xaml.Input.TappedEventHandler(entryTapped);
                     pushpin.Text = hTag.name;
                     MapLayer.SetPosition(pushpin, hTag.location);
                     myMap.Children.Add(pushpin);
+
+                    //add stuff to dictionaries
+                    tags.Add(hTag.name, hTag);
+                    itemTags.Add(hTag.name, item);
+                    pinTags.Add(hTag.name, pushpin);
 
                     Debug.WriteLineIf(DEBUG, ">>> >>>end of place mark entry");
                 }
@@ -147,6 +156,14 @@ namespace App1
             }
 
             LocationTag hTag = tags[name];
+            Pushpin pin = pinTags[name];
+
+            if (lastPin != null)
+            {
+                lastPin.Background = new SolidColorBrush(Colors.Green);
+            }
+            pin.Background = new SolidColorBrush(Colors.Red);
+            lastPin = pin;
 
             myMap.SetView(hTag.location, 15.5);
 
